@@ -1,0 +1,57 @@
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px; /* Altura da barra de navegação */
+  background-color: #ffffff;
+  border-top: 1px solid #dbdbdb;
+  z-index: 1000; /* Para ficar sobre outros conteúdos */
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  color: #262626; /* Cor dos ícones */
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1; /* Para distribuir o espaço igualmente */
+  height: 100%;
+  padding: 0;
+}
+
+.nav-icon {
+  font-size: 1.5em; /* Tamanho dos ícones */
+}
+
+/* .nav-label {
+  font-size: 0.7em;
+  margin-top: 2px;
+} */
+
+.nav-item.active .nav-icon {
+  /* Você pode adicionar um estilo para o item ativo, ex: cor diferente ou negrito */
+  /* Ex: color: #000; font-weight: bold; */
+}
+
+
+/* No desktop, a barra de navegação inferior geralmente não é mostrada ou é substituída por uma lateral */
+@media (min-width: 768px) {
+  .bottom-nav {
+    /* display: none; */ /* Descomente se quiser esconder no desktop */
+    /* Ou você pode ajustar para um menu lateral se necessário */
+    /* Para este exemplo, vamos mantê-la, mas o ideal seria uma navegação de desktop */
+    max-width: 600px; /* Alinha com o conteúdo principal */
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
+
+  }
+}

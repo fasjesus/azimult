@@ -5,9 +5,26 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa; /* Cor de fundo similar ao Instagram */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Para desktop, centralizar o conteúdo */
+  margin: 0 auto;
+}
+
+/* Em telas maiores, o conteúdo principal (feed) pode ser contido */
+@media (min-width: 768px) {
+  .main-content {
+    max-width: 600px; /* Similar à largura do feed do Instagram no desktop */
+    width: 100%;
+    margin: 0 auto; /* Centraliza o feed */
+    padding-top: 20px; /* Espaço para um possível header no futuro */
+  }
+  .app-container {
+     /* Remove a altura total para permitir rolagem natural da página no desktop */
+  }
 }
