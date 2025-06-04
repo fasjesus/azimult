@@ -1,43 +1,52 @@
+/* src/screens/ScheduleScreen/ScheduleScreen.css */
 .schedule-screen-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #fff; /* Fundo branco para a tela de agendamento */
+  background-color: #fff; 
 }
 
-.schedule-header {
+/* ESTILOS PARA .schedule-header FORAM REMOVIDOS */
+/* .schedule-header { ... } */
+/* .schedule-header .back-button { ... } */
+/* .schedule-header h1 { ... } */
+
+
+/* NOVOS ESTILOS PARA O CABEÇALHO INTEGRADO AO CONTEÚDO */
+.schedule-content-header {
   display: flex;
   align-items: center;
-  padding: 10px 16px;
-  border-bottom: 1px solid #eee;
-  background-color: #fff;
-  position: sticky; /* Para fixar no topo se o conteúdo rolar */
-  top: 0;
-  z-index: 10;
+  margin-bottom: 16px; /* Espaço abaixo do título, antes da imagem */
+  /* O padding lateral será herdado de .schedule-content se necessário, 
+     ou pode ser adicionado aqui se este header precisar de padding específico.
+     Por enquanto, confiamos no padding do .schedule-content. */
 }
 
-.schedule-header .back-button {
+.content-back-button {
   background: none;
   border: none;
-  font-size: 1.8em; /* Tamanho da seta */
+  font-size: 2em; /* Aumentar um pouco para melhor visibilidade */
+  font-weight: bold; /* Para a seta parecer mais robusta */
   margin-right: 10px;
   cursor: pointer;
-  color: #333;
-  padding: 0 5px;
+  color: #333; /* Cor padrão do texto */
+  padding: 0; /* Remover padding padrão */
+  line-height: 1; /* Ajustar alinhamento vertical */
 }
 
-.schedule-header h1 {
-  font-size: 1.2em;
+.content-main-title {
+  font-size: 1.4em; /* Tamanho do título como na imagem do mockup */
   color: #333;
   margin: 0;
   font-weight: 600;
 }
+/* FIM DOS NOVOS ESTILOS */
+
 
 .schedule-content {
   flex-grow: 1;
-  padding: 16px;
-  padding-bottom: 70px; /* Espaço para BottomNav */
-  /* Para centralizar e limitar a largura como outras telas em desktop */
+  padding: 16px; /* Padding geral para o conteúdo */
+  padding-bottom: 70px; 
   max-width: 600px; 
   margin: 0 auto;
   width: 100%;
@@ -47,13 +56,14 @@
 .schedule-attraction-image {
   width: 100%;
   height: auto;
-  max-height: 250px; /* Altura um pouco menor que na tela de detalhes */
+  max-height: 250px; 
   object-fit: cover;
-  border-radius: 8px; /* Bordas arredondadas */
-  margin-bottom: 8px; /* Espaço antes dos dots */
+  border-radius: 8px; 
+  margin-bottom: 8px; 
 }
 
-.schedule-dots { /* Reutilizando estilos dos dots, mas pode ter ajustes específicos */
+.schedule-dots { 
+  display: flex; /* Adicionado para garantir o alinhamento dos dots */
   justify-content: center;
   padding-bottom: 20px;
 }
@@ -65,14 +75,13 @@
   margin: 0 4px;
 }
 .schedule-dots .dot.active {
-  background-color: #3897f0; /* Cor do Instagram para dot ativo */
+  background-color: #3897f0; 
 }
-
 
 .schedule-form {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Espaço entre os grupos de formulário */
+  gap: 15px; 
 }
 
 .form-group {
@@ -95,7 +104,7 @@
   border-radius: 6px;
   font-size: 1em;
   color: #333;
-  background-color: #fafafa; /* Fundo levemente acinzentado para campos */
+  background-color: #fafafa; 
 }
 .form-group input[type="number"]:focus,
 .form-group input[type="text"]:focus,
@@ -106,7 +115,7 @@
 }
 
 .form-group textarea {
-    resize: vertical; /* Permite redimensionar verticalmente */
+    resize: vertical; 
 }
 
 .info-text {
@@ -118,7 +127,7 @@
 }
 
 .btn-schedule {
-  background-color: #007bff; /* Azul do mockup */
+  background-color: #007bff; 
   color: white;
   border: none;
   border-radius: 6px;
