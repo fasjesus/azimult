@@ -5,7 +5,7 @@ import './AttractionDetailScreen.css';
 import BottomNav from '../../components/BottomNav/BottomNav';
 
 import commonPostImage from '../../assets/images/img_praia.jpg'; 
-import avatarAvaliador from '../../assets/images/avatar_avaliador.jpeg'; // Mantido .jpeg conforme seu JS
+import avatarAvaliador from '../../assets/images/avatar_avaliador.jpeg'; // ou .jpg dependendo do seu arquivo
 
 const Icon = ({ children, className }) => <span className={`icon ${className || ''}`}>{children}</span>;
 
@@ -21,7 +21,7 @@ const ReviewCard = ({ review }) => (
 
 const AttractionDetailScreen = () => {
   const { id } = useParams(); 
-  const [attraction, setAttraction] = useState(null);
+  const [attraction, setAttraction] = useState(null); // Inicializado como null
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -50,7 +50,8 @@ const AttractionDetailScreen = () => {
         return;
       }
       setLoading(true);
-      setError(null);
+      setError(null); // Limpa erros anteriores ao tentar novamente
+      setAttraction(null); // Limpa atração anterior para evitar mostrar dados antigos durante o loading de um novo ID
       try {
         const response = await fetch(`https://azimult.henriqueserra.com/api/v1/turism-attractions/${id}`);
         if (!response.ok) {
@@ -61,7 +62,12 @@ const AttractionDetailScreen = () => {
         if (jsonData.status === 'success' && jsonData.data) {
           setAttraction(jsonData.data);
         } else {
-          throw new Error(jsonData.message || 'Formato de dados inesperado da API.');
+          // Se jsonData.data for null ou a estrutura não for a esperada, mas status ainda for 'success'
+          if (jsonData.status === 'success' && !jsonData.data) {
+            throw new Error('Atração não encontrada na API.'); // Erro mais específico
+          } else {
+            throw new Error(jsonData.message || 'Formato de dados inesperado da API.');
+          }
         }
       } catch (err) {
         console.error("Falha ao buscar detalhes da atração:", err);
@@ -70,21 +76,46 @@ const AttractionDetailScreen = () => {
         setLoading(false);
       }
     };
-
     fetchAttractionDetail();
   }, [id]); 
 
-  if (loading) { /* ... (código de loading) ... */ }
-  if (error) { /* ... (código de erro) ... */ }
-  if (!attraction) { /* ... (código de atração não encontrada) ... */ }
+  // V-- ESTAS CONDIÇÕES DE RETORNO SÃO CRUCIAIS --V
+  if (loading) { 
+    return (
+        <div className="detail-screen-container">
+            <p className="loading-message">Carregando detalhes...</p>
+            <BottomNav />
+        </div>
+    ); 
+  }
 
+  if (error) { 
+    return (
+        <div className="detail-screen-container">
+            <p className="error-message">Erro: {error}</p>
+            <BottomNav />
+        </div>
+    ); 
+  }
+
+  // Se não está carregando, não há erro, E attraction AINDA É NULL (ou não foi encontrado pela API)
+  if (!attraction) { 
+    return (
+        <div className="detail-screen-container">
+            {/* Você pode querer uma mensagem de erro mais específica se a API retornou sucesso mas data:null */}
+            <p className="info-message">Atração não encontrada.</p>
+            <BottomNav />
+        </div>
+    ); 
+  }
+  // ^-- SE CHEGAR AQUI, attraction DEFINITIVAMENTE NÃO É NULL --^
+
+  // Somente renderiza o conteúdo principal se attraction tiver dados
   return (
     <div className="detail-screen-container">
       <main className="attraction-detail-content">
-        {/* O <div className="attraction-header"> FOI REMOVIDO */}
-
         <section className="attraction-gallery">
-          {/* TÍTULO MOVIDO PARA DENTRO DA GALERIA */}
+          {/* Agora é seguro acessar attraction.title */}
           <h1 className="gallery-title">{attraction.title || 'Detalhes da Atração'}</h1>
           
           <img 
@@ -118,12 +149,12 @@ const AttractionDetailScreen = () => {
         
         <section className="attraction-info-block">
             <h2><Icon className="icon-blue">📍</Icon> Localização</h2>
-            <p>{attraction.location}</p>
+            <p>{attraction.location}</p> {/* Seguro acessar */}
         </section>
 
         <section className="attraction-info-block description-main">
             <h2><Icon className="icon-blue">📄</Icon> Descrição</h2>
-            <p>{attraction.description}</p>
+            <p>{attraction.description}</p> {/* Seguro acessar */}
         </section>
 
         <section className="attraction-info-block">
