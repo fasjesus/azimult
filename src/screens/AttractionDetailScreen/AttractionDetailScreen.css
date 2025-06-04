@@ -1,36 +1,42 @@
 /* src/screens/AttractionDetailScreen/AttractionDetailScreen.css */
+
 .detail-screen-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #f0f2f5;
+  background-color: #f0f2f5; /* Cor de fundo geral da tela */
 }
 
 .attraction-detail-content {
   flex-grow: 1;
+  /* REMOVIDO padding-left e padding-right daqui */
   padding-top: 16px;
-  padding-bottom: 70px;
-  margin: 0 auto;
-  width: 100%;
+  padding-bottom: 70px; /* Espaço para o BottomNav */
+  margin: 0 auto; /* Centraliza o conteúdo */
+  width: 100%;     /* Ocupa 100% da largura disponível até o max-width */
   box-sizing: border-box;
+  /* max-width será definido na media query */
 }
 
-.attraction-header h1 {
-  font-size: 1.8em;
+.gallery-title {
+  font-size: 1.2em;
+  font-weight: 600;
   color: #333;
-  margin-bottom: 16px;
+  padding: 12px 16px; /* Padding INTERNO ao card da galeria, para o título */
+  margin: 0;
   text-align: left;
-  padding-left: 16px;
-  padding-right: 16px;
+  background-color: #fff; /* Fundo do título, parte do card da galeria */
+  border-top-left-radius: 8px; /* Arredondamento para o título no topo do card */
+  border-top-right-radius: 8px;
 }
 
 .attraction-gallery {
-  background-color: #fff;
+  background-color: #fff; /* Fundo do card da galeria */
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   margin-bottom: 20px;
   overflow: hidden;
-  /* Removendo margens laterais para ocupar a largura total */
+  /* Ocupará 100% do .attraction-detail-content */
 }
 
 .attraction-main-image {
@@ -41,196 +47,93 @@
   display: block;
 }
 
-.carousel-dots {
-  display: flex;
-  justify-content: center;
-  padding: 10px 0;
-}
-.detail-dots {
-  background-color: #fff;
-}
-.dot {
-  height: 8px;
-  width: 8px;
-  background-color: #ccc;
-  border-radius: 50%;
-  margin: 0 4px;
-}
-.dot.active {
-  background-color: #007bff;
-}
+.carousel-dots { display: flex; justify-content: center; padding: 10px 0; }
+.detail-dots { background-color: #fff; }
+.dot { height: 8px; width: 8px; background-color: #ccc; border-radius: 50%; margin: 0 4px; }
+.dot.active { background-color: #007bff; }
 
 .attraction-actions {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-start; 
   gap: 20px;
-  padding: 10px 16px;
+  padding: 10px 16px; /* Padding INTERNO para os ícones de ação, dentro da galeria */
   font-size: 0.9em;
   color: #555;
-  background-color: #fff;
-  border-top: 1px solid #eee;
+  background-color: #fff; 
+  border-top: 1px solid #eee; 
 }
-.attraction-actions .icon {
-  font-size: 1.2em;
-  margin-right: 4px;
-  color: #333;
-}
-.attraction-actions span {
-  display: flex;
-  align-items: center;
-}
+.attraction-actions .icon { font-size: 1.2em; margin-right: 4px; color: #333; }
+.attraction-actions span { display: flex; align-items: center; }
 
 .attraction-booking {
   margin-bottom: 20px;
-  padding-left: 16px;
-  padding-right: 16px;
+  /* Este container não precisa de padding ou margin lateral.
+     Ocupará 100% do .attraction-detail-content.
+     O botão .btn-book-now dentro dele é width: 100% e tem seu próprio padding. */
 }
 
 .btn-book-now {
   background-color: #007bff;
-  color: white !important;
+  color: white !important; 
   border: none;
   border-radius: 6px;
-  padding: 12px 20px;
+  padding: 12px 20px; /* Padding interno do botão */
   font-size: 1em;
   font-weight: bold;
-  width: 100%;
+  width: 100%; /* Ocupa 100% do seu container .attraction-booking */
   cursor: pointer;
   transition: background-color 0.2s;
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  box-sizing: border-box;
+  display: block; 
+  text-align: center; 
+  text-decoration: none; 
+  box-sizing: border-box; 
 }
-.btn-book-now:hover {
-  background-color: #0056b3;
-  text-decoration: none;
-}
+.btn-book-now:hover { background-color: #0056b3; text-decoration: none; }
 
 .attraction-info-block {
-  background-color: #fff;
-  padding: 16px;
+  background-color: #fff; /* Fundo do card de informação */
+  padding: 16px; /* Padding INTERNO para o conteúdo do card */
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   margin-bottom: 20px;
   box-sizing: border-box;
-  /* Removendo margens laterais para ocupar a largura total */
+  /* Ocupará 100% do .attraction-detail-content */
 }
 
-.attraction-info-block h2 {
-  font-size: 1.2em;
-  color: #333;
-  margin-top: 0;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-}
-.attraction-info-block h2 .icon-blue {
-  color: #007bff;
-  margin-right: 8px;
-  font-size: 1.1em;
-}
+.attraction-info-block h2 { font-size: 1.2em; color: #333; margin-top: 0; margin-bottom: 10px; display: flex; align-items: center; }
+.attraction-info-block h2 .icon-blue { color: #007bff; margin-right: 8px; font-size: 1.1em; }
+.attraction-info-block p { font-size: 0.95em; line-height: 1.6; color: #555; margin-bottom: 0; }
+.description-main p { font-size: 1em; color: #333; }
 
-.attraction-info-block p {
-  font-size: 0.95em;
-  line-height: 1.6;
-  color: #555;
-  margin-bottom: 0;
-}
+.overall-rating { display: flex; align-items: center; font-size: 1.3em; }
+.overall-rating .rating-value { font-size: 1.5em; font-weight: bold; color: #333; margin-right: 8px; }
 
-.description-main p {
-  font-size: 1em;
-  color: #333;
-}
+.reviews-list { margin-top: 10px; }
+.review-card { display: flex; align-items: flex-start; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+.review-card:last-child { border-bottom: none; margin-bottom: 0; }
+.review-avatar { width: 50px; height: 50px; border-radius: 50%; margin-right: 15px; object-fit: cover; }
+.review-content { flex: 1; }
+.review-rating { font-size: 0.9em; margin-bottom: 5px; }
+.review-text { font-size: 0.9em; color: #555; line-height: 1.5; margin: 0; }
 
-.overall-rating {
-  display: flex;
-  align-items: center;
-  font-size: 1.3em;
-}
+.review-carousel-controls { display: flex; align-items: center; justify-content: center; margin-top: 15px; }
+.review-carousel-controls .arrow-btn { background: none; border: 1px solid #ccc; border-radius: 50%; width: 30px; height: 30px; font-size: 1.2em; cursor: pointer; color: #555; margin: 0 10px; }
+.review-carousel-controls .carousel-dots .dot { height: 6px; width: 6px; }
 
-.overall-rating .rating-value {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #333;
-  margin-right: 8px;
-}
-
-.reviews-list {
-  margin-top: 10px;
-}
-
-.review-card {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 15px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #eee;
-}
-.review-card:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-}
-
-.review-avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: 15px;
-  object-fit: cover;
-}
-
-.review-content {
-  flex: 1;
-}
-
-.review-rating {
-  font-size: 0.9em;
-  margin-bottom: 5px;
-}
-
-.review-text {
-  font-size: 0.9em;
-  color: #555;
-  line-height: 1.5;
-  margin: 0;
-}
-
-.review-carousel-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 15px;
-}
-.review-carousel-controls .arrow-btn {
-  background: none;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  font-size: 1.2em;
-  cursor: pointer;
-  color: #555;
-  margin: 0 10px;
-}
-.review-carousel-controls .carousel-dots .dot {
-  height: 6px;
-  width: 6px;
-}
-
-.loading-message,
-.error-message,
-.info-message {
-  text-align: center;
-  padding: 40px 20px;
-  font-size: 1.1em;
-}
-.error-message {
-  color: red;
-}
+.loading-message, .error-message, .info-message { text-align: center; padding: 40px 20px; font-size: 1.1em; }
+.error-message { color: red; }
 
 @media (min-width: 768px) {
   .attraction-detail-content {
-    max-width: 600px;
+    max-width: 600px; 
+    /* Com esta configuração, e sem padding lateral no .attraction-detail-content,
+       os filhos diretos como .attraction-gallery, .attraction-booking, .attraction-info-block
+       terão uma largura externa de 600px, alinhando-se com a BottomNav.
+       O espaçamento lateral do conteúdo DENTRO desses blocos (se necessário)
+       é controlado pelo padding dos próprios blocos (ex: .attraction-info-block { padding: 16px; }).
+       Se você quiser "calhas" gerais visíveis entre a borda da tela e esses blocos de 600px,
+       esse espaçamento viria do body ou de um container ainda mais externo,
+       ou o .attraction-detail-content voltaria a ter padding lateral e os blocos filhos seriam mais estreitos.
+       Mas para ALINHAR com a BottomNav de 600px, os blocos devem ter 600px. */
   }
 }
