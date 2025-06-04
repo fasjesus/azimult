@@ -1,0 +1,157 @@
+.schedule-screen-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fff; /* Fundo branco para a tela de agendamento */
+}
+
+.schedule-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  position: sticky; /* Para fixar no topo se o conteúdo rolar */
+  top: 0;
+  z-index: 10;
+}
+
+.schedule-header .back-button {
+  background: none;
+  border: none;
+  font-size: 1.8em; /* Tamanho da seta */
+  margin-right: 10px;
+  cursor: pointer;
+  color: #333;
+  padding: 0 5px;
+}
+
+.schedule-header h1 {
+  font-size: 1.2em;
+  color: #333;
+  margin: 0;
+  font-weight: 600;
+}
+
+.schedule-content {
+  flex-grow: 1;
+  padding: 16px;
+  padding-bottom: 70px; /* Espaço para BottomNav */
+  /* Para centralizar e limitar a largura como outras telas em desktop */
+  max-width: 600px; 
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.schedule-attraction-image {
+  width: 100%;
+  height: auto;
+  max-height: 250px; /* Altura um pouco menor que na tela de detalhes */
+  object-fit: cover;
+  border-radius: 8px; /* Bordas arredondadas */
+  margin-bottom: 8px; /* Espaço antes dos dots */
+}
+
+.schedule-dots { /* Reutilizando estilos dos dots, mas pode ter ajustes específicos */
+  justify-content: center;
+  padding-bottom: 20px;
+}
+.schedule-dots .dot {
+  height: 8px;
+  width: 8px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 4px;
+}
+.schedule-dots .dot.active {
+  background-color: #3897f0; /* Cor do Instagram para dot ativo */
+}
+
+
+.schedule-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaço entre os grupos de formulário */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.form-group input[type="number"],
+.form-group input[type="text"],
+.form-group textarea {
+  padding: 12px;
+  border: 1px solid #dbdbdb;
+  border-radius: 6px;
+  font-size: 1em;
+  color: #333;
+  background-color: #fafafa; /* Fundo levemente acinzentado para campos */
+}
+.form-group input[type="number"]:focus,
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #a0a0a0;
+  background-color: #fff;
+}
+
+.form-group textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.info-text {
+  font-size: 0.85em;
+  color: #555;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.btn-schedule {
+  background-color: #007bff; /* Azul do mockup */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 14px 20px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-schedule:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+.btn-schedule:disabled {
+    background-color: #a0c7e8;
+    cursor: not-allowed;
+}
+
+.error-message-form,
+.success-message-form {
+  text-align: center;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+}
+.error-message-form {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+.success-message-form {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}

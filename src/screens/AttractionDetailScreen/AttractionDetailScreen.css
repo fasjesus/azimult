@@ -1,0 +1,257 @@
+/* src/screens/AttractionDetailScreen/AttractionDetailScreen.css */
+
+.detail-screen-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.attraction-detail-content {
+  flex-grow: 1;
+  /* MODIFICADO: Remover padding laterais, manter apenas verticais */
+  padding-top: 16px;
+  padding-bottom: 70px; /* Espaço para o BottomNav */
+  margin: 0 auto; /* Centraliza o conteúdo quando max-width é aplicado */
+  width: 100%;     /* Ocupa 100% da largura disponível até o max-width */
+  box-sizing: border-box;
+  /* O max-width será definido na media query abaixo para telas maiores */
+}
+
+.attraction-header h1 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 16px;
+  text-align: left;
+  /* Adicionar padding horizontal se o título não estiver dentro de um bloco com padding */
+  padding-left: 16px; /* Adicionado para alinhar com blocos que terão padding */
+  padding-right: 16px;/* Adicionado para alinhar com blocos que terão padding */
+}
+
+.attraction-gallery {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+  /* Os elementos dentro da galeria (imagem, actions) controlarão seu próprio espaçamento.
+     A imagem é width: 100%. Actions tem seu próprio padding. */
+}
+
+.attraction-main-image {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0; /* Padding vertical para os dots */
+}
+.detail-dots { 
+  background-color: #fff; 
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 4px; /* Espaçamento horizontal entre os dots */
+}
+
+.dot.active {
+  background-color: #007bff; 
+}
+
+.attraction-actions {
+  display: flex;
+  justify-content: flex-start; 
+  gap: 20px;
+  padding: 10px 16px; /* Padding interno para os botões de ação */
+  font-size: 0.9em;
+  color: #555;
+  background-color: #fff; 
+  border-top: 1px solid #eee; 
+}
+
+.attraction-actions .icon {
+  font-size: 1.2em;
+  margin-right: 4px;
+  color: #333;
+}
+.attraction-actions span {
+  display: flex;
+  align-items: center;
+}
+
+.attraction-booking {
+  margin-bottom: 20px;
+  /* Este container não precisa de padding próprio se o botão for width: 100%
+     e tiver seu próprio padding interno. */
+  /* Adicionar padding horizontal se o botão não ocupar 100% e precisar de alinhamento */
+   padding-left: 16px; /* Adicionado para alinhar com blocos que terão padding */
+   padding-right: 16px;/* Adicionado para alinhar com blocos que terão padding */
+}
+
+/* CONSOLIDADO E CORRIGIDO: Apenas uma definição para .btn-book-now */
+.btn-book-now {
+  background-color: #007bff;
+  color: white !important; /* Mantido !important para garantir a cor sobre estilos de link padrão */
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px; /* Padding interno do botão */
+  font-size: 1em;
+  font-weight: bold;
+  width: 100%; /* Botão ocupa 100% do seu container .attraction-booking */
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: block; 
+  text-align: center; 
+  text-decoration: none; /* Essencial para o <Link> */
+  box-sizing: border-box; /* Para que padding e border não aumentem a largura total */
+}
+
+.btn-book-now:hover {
+  background-color: #0056b3;
+  text-decoration: none; 
+}
+
+.attraction-info-block {
+  background-color: #fff;
+  padding: 16px; /* Padding interno para o conteúdo destes blocos */
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  margin-left: 16px;  /* Adicionado para criar o espaço lateral */
+  margin-right: 16px; /* Adicionado para criar o espaço lateral */
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.attraction-info-block h2 {
+  font-size: 1.2em;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.attraction-info-block h2 .icon-blue {
+  color: #007bff;
+  margin-right: 8px;
+  font-size: 1.1em;
+}
+
+.attraction-info-block p {
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 0;
+}
+
+.description-main p { 
+  font-size: 1em; 
+  color: #333;
+}
+
+.overall-rating {
+  display: flex;
+  align-items: center;
+  font-size: 1.3em;
+}
+
+.overall-rating .rating-value {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  margin-right: 8px;
+}
+
+.reviews-list {
+  margin-top: 10px;
+}
+
+.review-card {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+.review-card:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.review-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+  object-fit: cover;
+}
+
+.review-content {
+  flex: 1;
+}
+
+.review-rating {
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+.review-text {
+  font-size: 0.9em;
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.review-carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+.review-carousel-controls .arrow-btn {
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: #555;
+  margin: 0 10px;
+}
+.review-carousel-controls .carousel-dots .dot {
+  height: 6px;
+  width: 6px;
+}
+
+/* Mensagens de feedback */
+.loading-message, .error-message, .info-message {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 1.1em;
+}
+.error-message {
+  color: red;
+}
+
+/* Layout para telas maiores (tablet/desktop) */
+@media (min-width: 768px) {
+  .attraction-detail-content {
+    max-width: 600px; 
+    /* A .attraction-detail-content em si NÃO terá padding laterais.
+       Seus filhos (.attraction-header, .attraction-gallery, .attraction-booking, .attraction-info-block)
+       controlarão seu próprio espaçamento/padding para preencher os 600px. */
+  }
+
+  /* Se os blocos internos como .attraction-info-block, .attraction-header, .attraction-booking
+     precisarem manter o padding lateral mesmo dentro do container de 600px,
+     esse padding já está neles ou foi adicionado (ex: .attraction-header). */
+}

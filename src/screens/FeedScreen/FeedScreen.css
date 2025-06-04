@@ -1,0 +1,7 @@
+.feed-screen {
+  padding-bottom: 60px; /* Espaço para a barra de navegação inferior não sobrepor o último post */
+  width: 100%;
+  box-sizing: border-box; /* Para garantir que o padding não aumente a largura total */
+}
+
+/* O @media para .main-content já está em index.css para centralizar */
