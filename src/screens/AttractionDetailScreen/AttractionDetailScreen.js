@@ -1,11 +1,10 @@
-// src/screens/AttractionDetailScreen/AttractionDetailScreen.js
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './AttractionDetailScreen.css';
 import BottomNav from '../../components/BottomNav/BottomNav';
 
 import commonPostImage from '../../assets/images/img_praia.jpg'; 
-import avatarAvaliador from '../../assets/images/avatar_avaliador.jpeg'; // ou .jpg dependendo do seu arquivo
+import avatarAvaliador from '../../assets/images/avatar_avaliador.jpeg'; 
 
 const Icon = ({ children, className }) => <span className={`icon ${className || ''}`}>{children}</span>;
 
@@ -79,7 +78,6 @@ const AttractionDetailScreen = () => {
     fetchAttractionDetail();
   }, [id]); 
 
-  // V-- ESTAS CONDIÇÕES DE RETORNO SÃO CRUCIAIS --V
   if (loading) { 
     return (
         <div className="detail-screen-container">
@@ -102,20 +100,19 @@ const AttractionDetailScreen = () => {
   if (!attraction) { 
     return (
         <div className="detail-screen-container">
-            {/* Você pode querer uma mensagem de erro mais específica se a API retornou sucesso mas data:null */}
+            {}
             <p className="info-message">Atração não encontrada.</p>
             <BottomNav />
         </div>
     ); 
   }
-  // ^-- SE CHEGAR AQUI, attraction DEFINITIVAMENTE NÃO É NULL --^
 
   // Somente renderiza o conteúdo principal se attraction tiver dados
   return (
     <div className="detail-screen-container">
       <main className="attraction-detail-content">
         <section className="attraction-gallery">
-          {/* Agora é seguro acessar attraction.title */}
+          {}
           <h1 className="gallery-title">{attraction.title || 'Detalhes da Atração'}</h1>
           
           <img 
