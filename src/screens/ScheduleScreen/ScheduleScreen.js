@@ -1,4 +1,3 @@
-// src/screens/ScheduleScreen/ScheduleScreen.js
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './ScheduleScreen.css';
@@ -20,7 +19,6 @@ const ScheduleScreen = () => {
 
   useEffect(() => {
     if (attractionId) {
-        // Simulação. Idealmente, buscaria o título real ou receberia via props/state.
         setAttractionTitle("Vila de Pescadores - Itacaré"); 
     }
   }, [attractionId]);
@@ -79,9 +77,9 @@ const ScheduleScreen = () => {
 
   return (
     <div className="schedule-screen-container">
-      {/* O <header className="schedule-header"> FOI REMOVIDO DAQUI */}
+      {}
       <main className="schedule-content">
-        {/* TÍTULO E BOTÃO DE VOLTAR MOVIDOS PARA O INÍCIO DO MAIN */}
+        {}
         <div className="schedule-content-header">
           <button onClick={handleGoBack} className="content-back-button">
             &lt; 
