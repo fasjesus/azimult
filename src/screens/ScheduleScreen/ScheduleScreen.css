@@ -1,4 +1,3 @@
-/* src/screens/ScheduleScreen/ScheduleScreen.css */
 .schedule-screen-container {
   display: flex;
   flex-direction: column;
@@ -6,27 +5,17 @@
   background-color: #fff; 
 }
 
-/* ESTILOS PARA .schedule-header FORAM REMOVIDOS */
-/* .schedule-header { ... } */
-/* .schedule-header .back-button { ... } */
-/* .schedule-header h1 { ... } */
-
-
-/* NOVOS ESTILOS PARA O CABEÇALHO INTEGRADO AO CONTEÚDO */
 .schedule-content-header {
   display: flex;
   align-items: center;
-  margin-bottom: 16px; /* Espaço abaixo do título, antes da imagem */
-  /* O padding lateral será herdado de .schedule-content se necessário, 
-     ou pode ser adicionado aqui se este header precisar de padding específico.
-     Por enquanto, confiamos no padding do .schedule-content. */
+  margin-bottom: 16px; 
 }
 
 .content-back-button {
   background: none;
   border: none;
-  font-size: 2em; /* Aumentar um pouco para melhor visibilidade */
-  font-weight: bold; /* Para a seta parecer mais robusta */
+  font-size: 2em; 
+  font-weight: bold; 
   margin-right: 10px;
   cursor: pointer;
   color: #333; /* Cor padrão do texto */
@@ -40,7 +29,6 @@
   margin: 0;
   font-weight: 600;
 }
-/* FIM DOS NOVOS ESTILOS */
 
 
 .schedule-content {
