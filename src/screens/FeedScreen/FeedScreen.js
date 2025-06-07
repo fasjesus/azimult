@@ -1,7 +1,7 @@
 // src/screens/FeedScreen/FeedScreen.js
 import React, { useState, useEffect } from 'react';
 import PostCard from '../../components/PostCard/PostCard';
-import BottomNav from '../../components/BottomNav/BottomNav'; // Importe o BottomNav aqui
+import BottomNav from '../../components/BottomNav/BottomNav'; 
 import './FeedScreen.css';
 import commonPostImage from '../../assets/images/img_praia.jpg';
 
@@ -11,7 +11,6 @@ const FeedScreen = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // ... (lógica de fetchAttractions como antes) ...
     const fetchAttractions = async () => {
       setLoading(true);
       setError(null);
@@ -49,7 +48,7 @@ const FeedScreen = () => {
 
   if (loading) {
     return (
-      <> {/* Use Fragment ou um div wrapper se precisar */}
+      <> {}
         <div className="feed-screen main-content" style={{ padding: '20px', textAlign: 'center' }}>
           <p>Carregando atrações turísticas...</p>
         </div>
@@ -69,7 +68,7 @@ const FeedScreen = () => {
     );
   }
 
-  if (posts.length === 0 && !loading) { // Adicionado !loading para evitar mostrar antes de carregar
+  if (posts.length === 0 && !loading) { 
     return (
         <>
             <div className="feed-screen main-content" style={{ padding: '20px', textAlign: 'center' }}>
@@ -81,7 +80,7 @@ const FeedScreen = () => {
   }
 
   return (
-    <> {/* Use Fragment ou um div wrapper */}
+    <> {}
       <main className="feed-screen main-content">
         {posts.map(post => (
           <PostCard key={post.id} post={post} />
