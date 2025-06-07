@@ -22,12 +22,12 @@ const PostCard = ({ post }) => {
 
   return (
     <article className="post-card">
-      {/* MODIFICAÇÃO AQUI: Removido o Link ao redor do título/localização */}
+      {}
       {location && (
         <h3 className="post-location">{location}</h3>
       )}
 
-      {/* O Link ao redor da imagem principal é MANTIDO */}
+      {}
       <Link to={`/attraction/${id}`} className="post-card-link-image">
         <img src={imageUrl} alt={location || 'Post image'} className="post-image" />
       </Link>
@@ -48,7 +48,7 @@ const PostCard = ({ post }) => {
       <div className="post-caption">
         <p>
           {caption}{' '}
-          {/* O Link no "ver mais" é MANTIDO */}
+          {}
           <Link to={`/attraction/${id}`} className="ver-mais-link">
             ver mais
           </Link>
