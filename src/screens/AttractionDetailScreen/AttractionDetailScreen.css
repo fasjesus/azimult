@@ -1,19 +1,16 @@
-/* src/screens/AttractionDetailScreen/AttractionDetailScreen.css */
-
 .detail-screen-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #f0f2f5; /* Cor de fundo geral da tela */
+  background-color: #f0f2f5; 
 }
 
 .attraction-detail-content {
   flex-grow: 1;
-  /* REMOVIDO padding-left e padding-right daqui */
   padding-top: 16px;
   padding-bottom: 70px; /* Espaço para o BottomNav */
-  margin: 0 auto; /* Centraliza o conteúdo */
-  width: 100%;     /* Ocupa 100% da largura disponível até o max-width */
+  margin: 0 auto; 
+  width: 100%;     
   box-sizing: border-box;
   /* max-width será definido na media query */
 }
@@ -22,21 +19,20 @@
   font-size: 1.2em;
   font-weight: 600;
   color: #333;
-  padding: 12px 16px; /* Padding INTERNO ao card da galeria, para o título */
+  padding: 12px 16px; 
   margin: 0;
   text-align: left;
-  background-color: #fff; /* Fundo do título, parte do card da galeria */
-  border-top-left-radius: 8px; /* Arredondamento para o título no topo do card */
+  background-color: #fff; 
+  border-top-left-radius: 8px; 
   border-top-right-radius: 8px;
 }
 
 .attraction-gallery {
-  background-color: #fff; /* Fundo do card da galeria */
+  background-color: #fff; 
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   margin-bottom: 20px;
   overflow: hidden;
-  /* Ocupará 100% do .attraction-detail-content */
 }
 
 .attraction-main-image {
@@ -56,7 +52,6 @@
   display: flex;
   justify-content: flex-start; 
   gap: 20px;
-  padding: 10px 16px; /* Padding INTERNO para os ícones de ação, dentro da galeria */
   font-size: 0.9em;
   color: #555;
   background-color: #fff; 
@@ -67,9 +62,6 @@
 
 .attraction-booking {
   margin-bottom: 20px;
-  /* Este container não precisa de padding ou margin lateral.
-     Ocupará 100% do .attraction-detail-content.
-     O botão .btn-book-now dentro dele é width: 100% e tem seu próprio padding. */
 }
 
 .btn-book-now {
@@ -77,10 +69,10 @@
   color: white !important; 
   border: none;
   border-radius: 6px;
-  padding: 12px 20px; /* Padding interno do botão */
+  padding: 12px 20px; 
   font-size: 1em;
   font-weight: bold;
-  width: 100%; /* Ocupa 100% do seu container .attraction-booking */
+  width: 100%; 
   cursor: pointer;
   transition: background-color 0.2s;
   display: block; 
@@ -91,13 +83,12 @@
 .btn-book-now:hover { background-color: #0056b3; text-decoration: none; }
 
 .attraction-info-block {
-  background-color: #fff; /* Fundo do card de informação */
-  padding: 16px; /* Padding INTERNO para o conteúdo do card */
+  background-color: #fff; 
+  padding: 16px; 
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   margin-bottom: 20px;
   box-sizing: border-box;
-  /* Ocupará 100% do .attraction-detail-content */
 }
 
 .attraction-info-block h2 { font-size: 1.2em; color: #333; margin-top: 0; margin-bottom: 10px; display: flex; align-items: center; }
@@ -126,14 +117,6 @@
 @media (min-width: 768px) {
   .attraction-detail-content {
     max-width: 600px; 
-    /* Com esta configuração, e sem padding lateral no .attraction-detail-content,
-       os filhos diretos como .attraction-gallery, .attraction-booking, .attraction-info-block
-       terão uma largura externa de 600px, alinhando-se com a BottomNav.
-       O espaçamento lateral do conteúdo DENTRO desses blocos (se necessário)
-       é controlado pelo padding dos próprios blocos (ex: .attraction-info-block { padding: 16px; }).
-       Se você quiser "calhas" gerais visíveis entre a borda da tela e esses blocos de 600px,
-       esse espaçamento viria do body ou de um container ainda mais externo,
-       ou o .attraction-detail-content voltaria a ter padding lateral e os blocos filhos seriam mais estreitos.
-       Mas para ALINHAR com a BottomNav de 600px, os blocos devem ter 600px. */
+   
   }
 }
