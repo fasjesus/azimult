@@ -15,7 +15,7 @@
 .nav-item {
   background: none;
   border: none;
-  color: #262626; /* Cor dos ícones */
+  color: #262626; 
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -36,17 +36,13 @@
 } */
 
 .nav-item.active .nav-icon {
-  /* Você pode adicionar um estilo para o item ativo, ex: cor diferente ou negrito */
-  /* Ex: color: #000; font-weight: bold; */
+  /* color: #000; font-weight: bold; */
 }
 
 
-/* No desktop, a barra de navegação inferior geralmente não é mostrada ou é substituída por uma lateral */
 @media (min-width: 768px) {
   .bottom-nav {
-    /* display: none; */ /* Descomente se quiser esconder no desktop */
-    /* Ou você pode ajustar para um menu lateral se necessário */
-    /* Para este exemplo, vamos mantê-la, mas o ideal seria uma navegação de desktop */
+    /* display: none; */ 
     max-width: 600px; /* Alinha com o conteúdo principal */
     left: 50%;
     transform: translateX(-50%);
